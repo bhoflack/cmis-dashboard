@@ -3,18 +3,21 @@
 /* jasmine specs for controllers go here */
 
 describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
+  beforeEach(module('cmis'));
 
+  var scope, cmisCtrl;
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl1 = $controller('MyCtrl1', { $scope: {} });
-    expect(myCtrl1).toBeDefined();
+  beforeEach(inject(function($controller) {
+      scope = {};
+      cmisCtrl = $controller('CmisCtrl', { $scope: scope });
   }));
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl2 = $controller('MyCtrl2', { $scope: {} });
-    expect(myCtrl2).toBeDefined();
+
+  it('should create a cis model with 3 cis', inject(function($controller) {
+      expect(scope.cis.length).toBe(3);
+  }));
+
+  it('should have options for the chart', inject(function($controller) {
+      expect(scope.options).toBeDefined();
   }));
 });
