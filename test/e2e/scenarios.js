@@ -35,7 +35,6 @@ describe('CMIS dashboard', function() {
 
       charts.each(function(chart) {
 	  expect(chart.getTagName()).toBe("canvas");
-
       });
   });
 });
