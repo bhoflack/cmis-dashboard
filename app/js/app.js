@@ -8,5 +8,6 @@ angular.module('cmis', [
   'cmis.services',
   'cmis.directives',
   'cmis.controllers',
-  'chartjs'
+  'chartjs',
+  'angular-loading-bar'
 ]);

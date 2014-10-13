@@ -48,29 +48,17 @@ function transformCi(ci) {
 }
 
 angular.module('cmis.services', []).
-  factory('cis', ['$http', function($http) {      
-      return function() {
-        //return $http.get('cis/').
-//          then(function(data, code) {
-//            return data.data.map(transformCi);
-//          });
-        return $http.get('cis/cis2.json').
-                 then(function(response, code) {
-                   return response.data.map(transformCi);
-                 });
-      }      
-  }]).
   factory('products', ['$http', function($http) {
       return function() {
-        return $http.get('cis/list.json').
+        return $http.get('cis/').
                  then(function(response, code) {
                    return response.data;
                  });
       }
   }]).
   factory('ci', ['$http', function($http) {
-      return function(slug) {
-        return $http.get('cis/' + slug + ".json").
+      return function(name) {
+        return $http.get('cis/product', {params: {name: name}}).
                  then(function(response, code) {
                    return transformCi(response.data);
                  });
